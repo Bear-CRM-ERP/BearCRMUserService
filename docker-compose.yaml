@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  swoole-http-gateway:
+    image: swoole-mongo:latest
+    volumes:
+      - ./:/var/www
+    ports:
+      - '81:9501'
+  mongodb_container:
+    hostname: mongodb
+    image: mongo:4.4.29
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root_O4_j0Q
+      MONGO_INITDB_ROOT_PASSWORD: tC0LQS0Led_W
+    ports:
+      - 27017:27017
+    volumes:
+      - ./.db:/data/db
